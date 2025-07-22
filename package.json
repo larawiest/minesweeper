@@ -1,0 +1,40 @@
+{
+  "name": "artsv5v0",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json",
+    "prettier-check": "prettier --check '{src,tests}/**/*.{js,ts,svelte}'",
+    "prettier-format": "prettier --write '{src,tests}/**/*.{js,ts,svelte}'",
+    "lint-check": "eslint ./src --report-unused-disable-directives",
+    "lint-fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@stylistic/eslint-plugin": "^2.12.1",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tsconfig/svelte": "^5.0.4",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-svelte": "^2.46.1",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-svelte": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "svelte": "^5.19.0",
+    "svelte-check": "^4.1.1",
+    "svelte-eslint-parser": "^0.43.0",
+    "svelte-language-server": "^0.17.8",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.19.1",
+    "vite": "^6.0.5"
+  }
+}
