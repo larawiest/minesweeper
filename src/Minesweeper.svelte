@@ -193,7 +193,7 @@
     </button>
 
 	<button
-		class="mb-2 me-2 rounded-lg bg-green-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-pink-600"
+		class="mb-2 me-2 rounded-lg bg-green-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-green-600"
 		onclick={bombenmodus} >
 		Bomben anzeigen
 	</button>
