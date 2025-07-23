@@ -22,7 +22,9 @@
     let bombenpositionen :Pos[] = $state([])
     let bombenzahl = $state(10)
     let bombcolor = $state('bg-gray-200')
+    let color = $state('bg-black-200')
     let bombenval = $state(1)
+    let uebrige = $state(bombenzahl)
 
     let dir = [new Pos(1,0), new Pos(1,1), new Pos(0,1), new Pos(-1, 0), new Pos(0,-1), new Pos(1,-1), new Pos(-1, -1), new Pos(-1, 1)]
 
@@ -128,6 +130,7 @@
     function handleClick (x :number, y :number) :void {
         if (iswinner()) {
             spielertext = 'gewonnen'
+            color = 'bg-green-600'
         }
         if (spielertext === 'verloren' || spielertext === 'gewonnen') return
         let pos = new Pos(x, y)
@@ -140,6 +143,7 @@
             if (board.get(pos) === -9) {
                 spielertext = 'verloren'
                 bombcolor = 'bg-red-300'
+                color = 'bg-red-600'
             }
             if (board.get(pos) === -10) {
                 tiefensuche(x, y)
@@ -148,13 +152,17 @@
         } else {
             if (board.get(pos) >= 90) {
                 board.set(pos, board.get(pos) - 100)
+                uebrige++
             } else if (board.get(pos) < 0) {
+                if (uebrige === 0) return
                 board.set(pos, board.get(pos) + 100)
+                uebrige--
             }
 
         }
         if (iswinner()) {
             spielertext = 'gewonnen'
+            color = 'bg-green-600'
         }
     }
 
@@ -164,11 +172,15 @@
         let pos = new Pos(x, y)
         if (board.get(pos) >= 90) {
                 board.set(pos, board.get(pos) - 100)
+                uebrige++
         } else if (board.get(pos) < 0) {
+                if (uebrige === 0) return
                 board.set(pos, board.get(pos) + 100)
+                uebrige--
         }
         if (iswinner()) {
             spielertext = 'gewonnen'
+            color = 'bg-green-600'
         }
     }
 
@@ -199,6 +211,8 @@
         bombcolor = 'bg-gray-200'
         bombenval = 1
         modus = 1
+        uebrige = bombenzahl
+        color = 'bg-black-200'
     }
 
     function changemode () :void {
@@ -275,8 +289,10 @@
       <option value="20x20x40">20x20x40</option>
     </select>
 
+    <p class = "px-5 py-2.5"> {bombenzahl - uebrige} / {bombenzahl} </p>
 
-    {spielertext}
+
+    <p class = "px-5 py-2.5 {color}"> {spielertext} </p>
 
 
 </div>
