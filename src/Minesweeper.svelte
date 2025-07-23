@@ -39,7 +39,7 @@
     matrix = createboard(sizex, sizey)
     let board = new Board (matrix)
 
-    board.setAll(-10)
+    board.setAll(-10) //äußerst wichtiger test
 
     function inarr (arr :Pos[], x :number, y :number) :boolean {
         for (let i = 0; i < arr.length; i++) {
