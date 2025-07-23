@@ -148,7 +148,7 @@
         } else {
             if (board.get(pos) >= 90) {
                 board.set(pos, board.get(pos) - 100)
-            } else if (board.get(pos) < 90) {
+            } else if (board.get(pos) < 0) {
                 board.set(pos, board.get(pos) + 100)
             }
 
@@ -164,7 +164,7 @@
         let pos = new Pos(x, y)
         if (board.get(pos) >= 90) {
                 board.set(pos, board.get(pos) - 100)
-        } else if (board.get(pos) < 90) {
+        } else if (board.get(pos) < 0) {
                 board.set(pos, board.get(pos) + 100)
         }
         if (iswinner()) {
