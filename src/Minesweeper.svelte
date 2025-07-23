@@ -148,10 +148,24 @@
         } else {
             if (board.get(pos) >= 90) {
                 board.set(pos, board.get(pos) - 100)
-            } else {
+            } else if (board.get(pos) < 90) {
                 board.set(pos, board.get(pos) + 100)
             }
 
+        }
+        if (iswinner()) {
+            spielertext = 'gewonnen'
+        }
+    }
+
+    function handleRechtsklick (event :MouseEvent, x :number, y :number) :void {
+        event.preventDefault()
+        if (spielertext === 'verloren' || spielertext === 'gewonnen') return
+        let pos = new Pos(x, y)
+        if (board.get(pos) >= 90) {
+                board.set(pos, board.get(pos) - 100)
+        } else if (board.get(pos) < 90) {
+                board.set(pos, board.get(pos) + 100)
         }
         if (iswinner()) {
             spielertext = 'gewonnen'
@@ -289,7 +303,8 @@
 							value === -10 && 'bg-gray-200',
 							value >= 90 && 'bg-rose-300',
 						]}
-						onclick={() => handleClick(x, y)} >
+						onclick={() => handleClick(x, y)} 
+                        oncontextmenu = {(event) => handleRechtsklick(event, x, y)} >
 						{#if value === 1 }
 							1
 						{:else if value === 2}
