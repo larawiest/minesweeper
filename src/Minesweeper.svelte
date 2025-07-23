@@ -159,6 +159,8 @@
         markboard()
         spielertext = 'spiel läuft'
         bombcolor = 'bg-gray-200'
+        bombenval = 1
+        modus = 1
     }
 
     function changemode () :void {
@@ -226,7 +228,7 @@
 							value === 2 && 'text-red-500',
 							value === 3 && 'text-green-500',
 							value === 4 && 'text-orange-300',
-							value === 5 && 'text-violett-500',
+							value === 5 && 'text-violett-300',
 							value === 6 && 'text-yellow-500',
 							value === 7 && 'text-rose-500',
 							value === 8 && 'text-lightgreen-500',
