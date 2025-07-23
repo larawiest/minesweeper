@@ -15,6 +15,7 @@
     let sizex = $state(10)
     let sizey = $state(10)
     let matrix :number[][] = $state([])
+    let spielmodus = $state('10x10x10')
 
     let modus = $state(1)
 
@@ -39,7 +40,7 @@
     matrix = createboard(sizex, sizey)
     let board = new Board (matrix)
 
-    board.setAll(-10) //äußerst wichtiger test
+    board.setAll(-10)
 
     function inarr (arr :Pos[], x :number, y :number) :boolean {
         for (let i = 0; i < arr.length; i++) {
@@ -125,7 +126,10 @@
     }
 
     function handleClick (x :number, y :number) :void {
-        if (spielertext === 'verloren') return
+        if (iswinner()) {
+            spielertext = 'gewonnen'
+        }
+        if (spielertext === 'verloren' || spielertext === 'gewonnen') return
         let pos = new Pos(x, y)
         if (! board.inside(pos)) return
         //Freilegen
@@ -149,6 +153,26 @@
             }
 
         }
+        if (iswinner()) {
+            spielertext = 'gewonnen'
+        }
+    }
+
+    function iswinner () :boolean {
+        let value :number|undefined = 0
+        for (let i = 0; i < sizex; i++) {
+            for (let j = 0; j < sizey; j++) {
+                value = board.get(new Pos (i,j))
+                if (value !== undefined && value >= 90) {
+                    value = value - 100
+                }
+                if (value === undefined) return false
+                if (value < 0 && value !== -9) {
+                    return false
+                }
+            }
+        }
+        return true
     }
 
     function resetGame () :void {
@@ -176,6 +200,22 @@
 			bombcolor = 'bg-blue-200'
 		}
 	}
+
+    function moduschange () {
+        if (spielmodus === '10x10x10') {
+            sizex = 10
+            sizey = 10
+            bombenzahl = 10
+        }
+        if (spielmodus === '20x20x40') {
+            sizex = 20
+            sizey = 20
+            bombenzahl = 40
+        }
+        matrix = createboard(sizex, sizey)
+        board = new Board(matrix)
+        resetGame()
+    }
 
 
 
@@ -210,6 +250,11 @@
         {/if}
     </button>
 
+    <select bind:value={spielmodus} onchange={moduschange} class="mb-2 me-2 rounded-lg">
+      <option value="10x10x10">10x10x10</option>
+      <option value="20x20x40">20x20x40</option>
+    </select>
+
 
     {spielertext}
 
@@ -228,7 +273,7 @@
 							value === 2 && 'text-red-500',
 							value === 3 && 'text-green-500',
 							value === 4 && 'text-orange-300',
-							value === 5 && 'text-violett-300',
+							value === 5 && 'text-blue-300',
 							value === 6 && 'text-yellow-500',
 							value === 7 && 'text-rose-500',
 							value === 8 && 'text-lightgreen-500',
