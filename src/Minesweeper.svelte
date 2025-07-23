@@ -173,7 +173,7 @@
     }
 
     function iswinner () :boolean {
-        let value :number|undefined = 0
+        let value :number | undefined = 0
         for (let i = 0; i < sizex; i++) {
             for (let j = 0; j < sizey; j++) {
                 value = board.get(new Pos (i,j))
@@ -221,6 +221,11 @@
             sizey = 10
             bombenzahl = 10
         }
+        if (spielmodus === '15x10x20') {
+            sizex = 10
+            sizey = 15
+            bombenzahl = 20
+        }
         if (spielmodus === '20x20x40') {
             sizex = 20
             sizey = 20
@@ -266,6 +271,7 @@
 
     <select bind:value={spielmodus} onchange={moduschange} class="mb-2 me-2 rounded-lg">
       <option value="10x10x10">10x10x10</option>
+      <option value="15x10x20">15x10x20</option>
       <option value="20x20x40">20x20x40</option>
     </select>
 
