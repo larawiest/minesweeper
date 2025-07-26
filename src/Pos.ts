@@ -13,7 +13,7 @@ export class Pos {
     }
 
     neg () :Pos {
-        return new Pos (-this.x, -this)
+        return new Pos (-this.x, -this.y)
     }
 
 }

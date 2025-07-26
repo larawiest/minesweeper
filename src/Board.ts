@@ -5,11 +5,13 @@ export class Board {
     readonly board :number[][]
     readonly sizex :number
     readonly sizey :number
+    public winner :number
 
     constructor (board :number[][]) {
         this.board = board
         this.sizex = board.length
         this.sizey = board[0].length
+        this.winner = 0
     }
 
     inside (pos :Pos) :boolean {
@@ -43,6 +45,14 @@ export class Board {
                 }
             }
         }
+    }
+
+    setwinner (winner :number) :void {
+        this.winner = winner
+    }
+
+    getwinner () :number {
+        return this.winner
     }
 
 }
