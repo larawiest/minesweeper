@@ -47,6 +47,17 @@ export class Board {
         }
     }
 
+    full () :boolean {
+        for (let i = 0; i < this.sizex; i++) {
+            for (let j = 0; j < this.sizey; j++) {
+                if (this.board[i][j] === 0) {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
     setwinner (winner :number) :void {
         this.winner = winner
     }

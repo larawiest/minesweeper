@@ -1,7 +1,7 @@
 <script lang="ts">
 
-	import { Board } from './Board.ts'
-	import { Pos } from './Pos.ts'
+	import { Board } from './Board'
+	import { Pos } from './Pos'
 
     let playerzahl = $state(2)
     let player = $state(Math.floor(Math.random() * playerzahl) + 1)
@@ -100,6 +100,7 @@
     }
 
     function takeback () :void {
+        if (winnertext !== 'spiel läuft') return
         if (zuege.length === 0) return
         board.set(zuege[zuege.length - 1], 0)
         if (player === 1) {
@@ -141,7 +142,7 @@
 <div class="flex justify-center gap-2 p-2">
 
     <button
-	    class="mb-2 me-2 rounded-lg bg-pink-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-pink-600"
+	    class="mb-2 me-2 rounded-lg bg-blue-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-600"
 	    onclick={takeback} >
 	    back
     </button>
@@ -169,7 +170,7 @@
 				{#each row as value, y}
 					<button
 						class={[
-							'size-10 border align-middle enabled:hover:bg-slate-100',
+							'size-20 border align-middle enabled:hover:bg-slate-100',
 							value === 1 && 'text-blue-500',
                             value === 2 && 'text-red-500',
 							value === -1 && 'bg-blue-300',

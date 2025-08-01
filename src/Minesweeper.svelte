@@ -8,8 +8,8 @@
     // 10: aufgedecktes leeres Feld
     // 90 bis 110: markieretes Feld
 
-	import { Board } from './Board.ts'
-	import { Pos } from './Pos.ts'
+	import { Board } from './Board'
+	import { Pos } from './Pos'
 
     let spielertext = $state('spiel läuft')
     let sizex = $state(10)

@@ -1,7 +1,7 @@
 export class Pos {
 
     readonly x :number
-    readonly y : number
+    readonly y :number
 
     constructor (x :number, y :number) {
         this.x = x
