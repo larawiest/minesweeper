@@ -219,8 +219,8 @@
                 class = {["enabled:hover:bg-green-200",
                     (x + y) % 2 === 0 && 'bg-green-300',
                     (x + y) % 2 === 1 && 'bg-green-400',
-                    value === 1 && 'bg-pink-400',
-                    value === 2 && 'bg-pink-600',
+                    value === 1 && 'bg-blue-400',
+                    value === 2 && 'bg-blue-600',
                     value === 10 && 'bg-red-400'
                     ]}>
             </button>
