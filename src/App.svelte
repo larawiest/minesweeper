@@ -2,6 +2,7 @@
 	import Minesweeper from './Minesweeper.svelte';
 	import TicTacToe from './TicTacToe.svelte';
 	import BigTicTacToe from './BigTicTacToe.svelte';
+	import Snake from './Snake.svelte';
 
 	let selectedGame: string | null = null;
 
@@ -14,7 +15,7 @@
 	}
 </script>
 
-<main class="min-h-screen flex flex-col items-center justify-center gap-8 bg-gray-100 p-6 text-center">
+<main class="min-h-screen flex flex-col items-center justify-center gap-8 p-6 text-center">
 
 	{#if selectedGame === null}
 		<h1 class="text-3xl font-bold">Wähle ein Spiel:</h1>
@@ -28,6 +29,9 @@
 			</button>
 			<button class="px-6 py-3 bg-pink-500 text-white rounded-lg hover:bg-pink-600" on:click={() => selectGame('bigtictactoe')}>
 				Big Tic Tac Toe
+			</button>
+			<button class="px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600" on:click={() => selectGame('snake')}>
+				Snake
 			</button>
 		</div>
 
@@ -48,6 +52,11 @@
 			← Zurück
 		</button>
 		<TicTacToe />
+	{:else if selectedGame === 'snake'}
+		<button class="absolute top-6 left-6 bg-gray-200 px-3 py-1 rounded hover:bg-gray-300" on:click={goBack}>
+			← Zurück
+		</button>
+		<Snake />
 	{/if}
 
 </main>

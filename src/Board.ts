@@ -66,4 +66,16 @@ export class Board {
         return this.winner
     }
 
+    getempty () :Pos[] {
+        let emptyfields :Pos[] = []
+        for (let i = 0; i < this.sizex; i++) {
+            for (let j = 0; j < this.sizey; j++) {
+                if (this.board[i][j] === 0) {
+                    emptyfields.push(new Pos(i, j))
+                }
+            }
+        }
+        return emptyfields
+    }
+
 }

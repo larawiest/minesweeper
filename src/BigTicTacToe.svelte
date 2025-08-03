@@ -185,6 +185,7 @@
         if ((aktuellesx2 !== x2 || aktuellesy2 !== y2) && (aktuellesx2 !== undefined && aktuellesy2 !== undefined)) return
         if (winnertext !== 'spiel läuft') return
         let pos = new BigPos(x2, y2, x, y)
+        if (board.get(pos) !== 0) return
         if (board.get(pos) === 0) {
             text = board.get(pos).toString()
             board.set(pos, player)           
