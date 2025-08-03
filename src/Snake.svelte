@@ -40,7 +40,7 @@
     let board = new Board (matrix)
 
     board.setAll(0)
-    board.set(aktuellepos, -1)
+    board.set(aktuellepos, 1)
 
     let emptyfields = board.getempty()
     let apfel = emptyfields[Math.floor(Math.random() * emptyfields.length)]
