@@ -40,7 +40,7 @@
     let board = new Board (matrix)
 
     board.setAll(0)
-    board.set(aktuellepos, 2)
+    board.set(aktuellepos, -1)
 
     let emptyfields = board.getempty()
     let apfel = emptyfields[Math.floor(Math.random() * emptyfields.length)]
@@ -92,7 +92,7 @@
         for (let i = 0; i < zuege.length(); i++) {
             board.set(zuege.getvalue(i), 1)
         }
-        board.set(aktuellepos, 2)
+        board.set(aktuellepos, -1)
         if (aktuellepos.x === apfel.x && aktuellepos.y === apfel.y) {
             if (zuege.length() === (sizex * sizey) - 1) {
                 winnertext = 'gewonnen'
@@ -122,7 +122,7 @@
         richtung = 1
         board.setAll(0)
         aktuellepos = new Pos(0,0)
-        board.set(aktuellepos, 2)
+        board.set(aktuellepos, -1)
         emptyfields = board.getempty()
         apfel = emptyfields[Math.floor(Math.random() * emptyfields.length)]
         board.set(apfel, 10)
@@ -222,7 +222,7 @@
                     (x + y) % 2 === 0 && 'bg-green-300',
                     (x + y) % 2 === 1 && 'bg-green-400',
                     value === 1 && 'bg-[#60a5fa]',
-                    value === 2 && 'bg-[#3b82f6]',
+                    value === -1 && 'bg-[#3b82f6]',
                     value === 10 && 'bg-red-400'
                     ]}>
             </button>
