@@ -40,7 +40,7 @@
     let board = new Board (matrix)
 
     board.setAll(0)
-    board.set(aktuellepos, 1)
+    board.set(aktuellepos, -1)
 
     let emptyfields = board.getempty()
     let apfel = emptyfields[Math.floor(Math.random() * emptyfields.length)]
@@ -221,8 +221,8 @@
                 class = {["enabled:hover:bg-green-200",
                     (x + y) % 2 === 0 && 'bg-green-300',
                     (x + y) % 2 === 1 && 'bg-green-400',
-                    value === 1 && 'bg-[#60a5fa]',
-                    value === -1 && 'bg-[#3b82f6]',
+                    value === 1 && 'bg-[#4444ff]',
+                    value === -1 && 'bg-[#0000ff]',
                     value === 10 && 'bg-red-400'
                     ]}>
             </button>
