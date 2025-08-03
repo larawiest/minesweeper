@@ -199,10 +199,6 @@
 
     <p class="px-5 py-2.5">{winnertext}</p>
 
-    <div class="bg-blue-400 text-white p-4 mt-4">Test: Blue 400</div>
-<div class="bg-blue-600 text-white p-4 mt-2">Test: Blue 600</div>
-<div class="bg-pink-400 text-white p-4 mt-2">Test: Pink 400</div>
-
 </div>
 
 <div class="flex justify-center gap-4 p-4">
@@ -225,8 +221,8 @@
                 class = {["enabled:hover:bg-green-200",
                     (x + y) % 2 === 0 && 'bg-green-300',
                     (x + y) % 2 === 1 && 'bg-green-400',
-                    value === 1 && 'bg-blue-400',
-                    value === 2 && 'bg-blue-600',
+                    value === 1 && 'bg-red-400',
+                    value === 2 && 'bg-red-600',
                     value === 10 && 'bg-red-400'
                     ]}>
             </button>
