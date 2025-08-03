@@ -222,7 +222,7 @@
                     (x + y) % 2 === 0 && 'bg-green-300',
                     (x + y) % 2 === 1 && 'bg-green-400',
                     value === 1 && 'bg-[#4444ff]',
-                    value === -1 && 'bg-[#0000ff]',
+                    value === -1 && 'bg-[#ff00ff]',
                     value === 10 && 'bg-red-400'
                     ]}>
             </button>
