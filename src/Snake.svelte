@@ -199,6 +199,10 @@
 
     <p class="px-5 py-2.5">{winnertext}</p>
 
+    <div class="bg-blue-400 text-white p-4 mt-4">Test: Blue 400</div>
+<div class="bg-blue-600 text-white p-4 mt-2">Test: Blue 600</div>
+<div class="bg-pink-400 text-white p-4 mt-2">Test: Pink 400</div>
+
 </div>
 
 <div class="flex justify-center gap-4 p-4">
