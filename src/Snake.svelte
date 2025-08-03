@@ -170,6 +170,8 @@
 
 <div class="flex justify-center gap-2 p-2">
 
+    <div class="hidden bg-blue-400 bg-blue-600"></div>
+
     <button
 	    class="mb-2 me-2 rounded-lg bg-pink-500 px-5 py-2.5 text-sm font-medium text-white hover:bg-pink-600"
 	    onclick={reset} >
