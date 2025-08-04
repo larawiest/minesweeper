@@ -62,7 +62,6 @@
                 if (board.get(pos) === 0) {
                     if (value === 3) {
                         next.set(pos, 1)
-                        text = 'neue Zelle'
                     } else {
                         next.set(pos, 0)
                     }
@@ -201,7 +200,7 @@
                             width: 32px;
                             height: 32px"
 						class={[
-							'size-10 align-middle enabled:hover:bg-slate-100',
+							'size-10 align-middle enabled:hover:bg-slate-500',
 							value === 0 && 'bg-black',
                             value === 1 && 'bg-white'
 						]}
