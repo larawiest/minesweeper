@@ -15,6 +15,7 @@
     let spielmodus = $state('10x10')
     let speedstr = $state('1000')
     let speed = $state(1000)
+    let color = $state('bg-blue-400')
 
     let richtungen = [
         new Pos(1, 0), //unten
@@ -221,8 +222,8 @@
                 class = {["enabled:hover:bg-green-200",
                     (x + y) % 2 === 0 && 'bg-green-300',
                     (x + y) % 2 === 1 && 'bg-green-400',
-                    value === 1 && 'bg-pink-400',
-                    value === -1 && 'bg-pink-500',
+                    value === 1 && 'bg-sky-400',
+                    value === -1 && 'bg-sky-500',
                     value === 10 && 'bg-red-400'
                     ]}>
             </button>
