@@ -109,7 +109,7 @@
 
     let intervalId: number
 
-    function startgame () :void {
+    function startgame() :void {
         intervalId = setInterval(movehead, speed)
     }
 
