@@ -75,6 +75,9 @@
 
 
     function movehead() :void{
+        if (winnertext !== 'spiel läuft') {
+            return
+        }
         aktuellepos = aktuellepos.add(richtungen[richtung])
         if (board.get(aktuellepos) === 1) {
             richtung = 5
@@ -111,6 +114,9 @@
     let intervalId: number
 
     function startgame() :void {
+        if (winnertext !== 'spiel läuft') {
+            reset()
+        }
         intervalId = setInterval(movehead, speed)
     }
 
