@@ -117,6 +117,7 @@
         if (winnertext !== 'spiel läuft') {
             reset()
         }
+        stopGame()
         intervalId = setInterval(movehead, speed)
     }
 
